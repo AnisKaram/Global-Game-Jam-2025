@@ -1,15 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CoinCollectible : MonoBehaviour, ICollectible
 {
+    public static event Action CoinCollected;
+
     public void Collect()
     {
-        // Increment Coin amount
-        // Destroy
-        // Play SFX
-        // Play Particle Effect
+        CoinCollected?.Invoke();
+        Destroy();
+        PlaySoundEffect();
+        PlayerParticleEffect();
         Debug.Log("Coin Collected");
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void PlayerParticleEffect()
+    {
+    }
+
+    public void PlaySoundEffect()
+    {
     }
 }

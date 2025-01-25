@@ -1,15 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CarrotCollectible : MonoBehaviour, ICollectible
 {
+    public static event Action CarrotCollected;
+
     public void Collect()
     {
-        // Increment Carrot amount
-        // Destroy
-        // Play SFX
-        // Play Particle Effect
+        CarrotCollected?.Invoke();
+        Destroy();
+        PlaySoundEffect();
+        PlayerParticleEffect();
         Debug.Log($"Carrot Collected");
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void PlayerParticleEffect()
+    {
+    }
+
+    public void PlaySoundEffect()
+    {
     }
 }
