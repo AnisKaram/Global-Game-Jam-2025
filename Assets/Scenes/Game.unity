@@ -1500,7 +1500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 232620802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 528448762}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &232620802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3026,6 +3038,7 @@ Transform:
   m_Children:
   - {fileID: 1365145155}
   - {fileID: 1132130794}
+  - {fileID: 2031550149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &530665620
@@ -3781,7 +3794,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 657184700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 528448762}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &657184700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4183,7 +4208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &760540471
 Transform:
   m_ObjectHideFlags: 0
@@ -4456,7 +4481,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 778796466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 528448762}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &778796466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8541,7 +8578,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671600374}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 528448762}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1671600374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9753,6 +9802,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6370019886735408887, guid: abbeec318201848779eee2b56429908a, type: 3}
   m_PrefabInstance: {fileID: 2029469611}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2031550148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2031550149}
+  - component: {fileID: 2031550150}
+  m_Layer: 0
+  m_Name: Game_Ended_Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2031550149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031550148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 528448763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2031550150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031550148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca0df6e4b11d456a9f3aabf12a055d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameWonPanel: {fileID: 588768930}
+  gameOverPanel: {fileID: 102447499}
+  gameWonCarrotsText: {fileID: 2038341440}
+  gameWonCoinsText: {fileID: 435526892}
+  gameOverCarrotsText: {fileID: 242862200}
+  gameOverCoinsText: {fileID: 1115289854}
 --- !u!1 &2038341438
 GameObject:
   m_ObjectHideFlags: 0

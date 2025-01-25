@@ -26,8 +26,7 @@ public class PlayerHealthController : MonoBehaviour
 
         if (health <= 0)
         {
-            // Gameover
-            Debug.Log($"GameOver");
+            GameManager.instance.gameEnded.TriggerGameOver();
         }
     }
 

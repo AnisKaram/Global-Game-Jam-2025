@@ -32,8 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsPlayerExceededMaxBoundary())
         {
-            // TODO Gameover
-            Debug.Log($"Yes he exceeded");
+            GameManager.instance.gameEnded.TriggerGameOver();
         }
     }
     private void FixedUpdate()
