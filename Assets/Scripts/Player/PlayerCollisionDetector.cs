@@ -9,4 +9,12 @@ public class PlayerCollisionDetector : MonoBehaviour
             GameManager.instance.gameEnded.TriggerGameWon();
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("GameOver"))
+        {
+            GameManager.instance.gameEnded.TriggerGameOver();
+        }
+    }
 }
