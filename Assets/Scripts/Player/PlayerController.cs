@@ -7,9 +7,13 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 80f;
     private Rigidbody2D rb;
 
+    private float maxHeightBoundary;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        CalculateMaxHeightBoundary();
     }
 
     private void Update()
@@ -24,6 +28,12 @@ public class PlayerController : MonoBehaviour
         {
             ChangeGravityScale(gravity);
             ApplyForce(direction: direction, rotationDirection);
+        }
+
+        if (IsPlayerExceededMaxBoundary())
+        {
+            // TODO Gameover
+            Debug.Log($"Yes he exceeded");
         }
     }
     private void FixedUpdate()
@@ -47,5 +57,18 @@ public class PlayerController : MonoBehaviour
 
         // Rotate the bubble
         rb.AddTorque(rotationDirection * rotationSpeed, ForceMode2D.Impulse);
+    }
+
+    private void CalculateMaxHeightBoundary()
+    {
+        Camera camera = Camera.main;
+        Vector3 screenPosition = new Vector3(Screen.width, Screen.height, 0f);
+        Vector3 worldPosition = camera.ScreenToWorldPoint(screenPosition);
+        float offset = 2.5f;
+        maxHeightBoundary = worldPosition.y + offset;
+    }
+    private bool IsPlayerExceededMaxBoundary()
+    {
+        return Mathf.Abs(transform.position.y) > maxHeightBoundary;
     }
 }
