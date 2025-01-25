@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static GameManager m_instance;
 
-    // Update is called once per frame
-    void Update()
+    public PlayerHealthController playerHealth { get; private set; }
+
+    public static GameManager instance => m_instance;
+
+    private void Awake()
     {
-        
+        if (m_instance == null)
+        {
+            m_instance = this;
+        }
+
+        playerHealth = GetComponentInChildren<PlayerHealthController>();
     }
 }
