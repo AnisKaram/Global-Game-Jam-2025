@@ -16,16 +16,22 @@ public class GameEndedController : MonoBehaviour
 
     public void TriggerGameWon()
     {
-        GameManager.instance.SaveData();
+        GameManager gameManager = GameManager.instance;
+        gameManager.SaveData();
+        gameManager.soundController.PlayGameEndedEffect(0);
         gameWonPanel.SetActive(true);
         UpdateGameWonUI();
         PauseTimeScale();
     }
     public void TriggerGameOver()
     {
-        gameOverPanel.SetActive(true);
-        UpdateGameOverUI();
-        PauseTimeScale();
+        if (Time.timeScale == 1)
+        {
+            PauseTimeScale();
+            GameManager.instance.soundController.PlayGameEndedEffect(1);
+            gameOverPanel.SetActive(true);
+            UpdateGameOverUI();
+        }
     }
 
     private void UpdateGameWonUI()

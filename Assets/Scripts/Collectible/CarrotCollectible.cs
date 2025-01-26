@@ -11,7 +11,6 @@ public class CarrotCollectible : MonoBehaviour, ICollectible
         Destroy();
         PlaySoundEffect();
         PlayParticleEffect();
-        Debug.Log($"Carrot Collected");
     }
 
     public void Destroy()
@@ -26,5 +25,6 @@ public class CarrotCollectible : MonoBehaviour, ICollectible
 
     public void PlaySoundEffect()
     {
+        GameManager.instance.soundController.PlaySoundEffect(2);
     }
 }

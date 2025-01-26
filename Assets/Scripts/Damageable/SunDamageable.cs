@@ -6,7 +6,6 @@ public class SunDamageable : MonoBehaviour, IDamageable
 
     public void Damage(Vector3 hitPosition)
     {
-        Debug.Log($"Sun Damage, {damage}");
         GameManager.instance.playerHealth.ReduceHealth(damage);
         PlayParticleEffect(hitPosition);
         PlaySoundEffect();
