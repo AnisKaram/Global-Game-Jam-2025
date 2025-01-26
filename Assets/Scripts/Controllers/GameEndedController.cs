@@ -16,20 +16,32 @@ public class GameEndedController : MonoBehaviour
 
     public void TriggerGameWon()
     {
-        GameManager gameManager = GameManager.instance;
-        gameManager.SaveData();
-        gameManager.soundController.PlayGameEndedEffect(0);
-        gameWonPanel.SetActive(true);
-        UpdateGameWonUI();
-        PauseTimeScale();
+        if (Time.timeScale == 1)
+        {
+            PauseTimeScale();
+
+            GameManager gameManager = GameManager.instance;
+            gameManager.SaveData();
+            gameManager.soundController.StopSoundtrack();
+            gameManager.soundController.PlayGameEndedEffect(0);
+
+            gameWonPanel.SetActive(true);
+
+            UpdateGameWonUI();
+        }
     }
     public void TriggerGameOver()
     {
         if (Time.timeScale == 1)
         {
             PauseTimeScale();
-            GameManager.instance.soundController.PlayGameEndedEffect(1);
+
+            GameManager gameManager = GameManager.instance;
+            gameManager.soundController.PlayGameEndedEffect(1);
+            gameManager.soundController.StopSoundtrack();
+
             gameOverPanel.SetActive(true);
+
             UpdateGameOverUI();
         }
     }
