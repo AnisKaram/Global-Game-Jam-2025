@@ -17,6 +17,9 @@ public class MainMenuController : MonoBehaviour
 
     public void Level(int level)
     {
+        PlayerPrefs.SetInt("level.index", level);
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene("Game");
     }
     public void Quit()

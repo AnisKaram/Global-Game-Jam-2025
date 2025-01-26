@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public ParticleEffectController particleEffect { get; private set; }
     public SoundController soundController { get; private set; }
 
+    public GameObject[] levels;
+
     public static GameManager instance => m_instance;
 
     private void Awake()
@@ -29,6 +31,9 @@ public class GameManager : MonoBehaviour
         collectiblesInventory = GetComponentInChildren<CollectiblesInventoryController>();
         particleEffect = GetComponentInChildren<ParticleEffectController>();
         soundController = GetComponentInChildren<SoundController>();
+
+        int levelIndex = PlayerPrefs.GetInt("level.index", 1);
+        levels[levelIndex - 1].SetActive(true);
     }
 
     public void Restart()
