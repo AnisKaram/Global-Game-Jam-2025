@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameEndedController gameEnded { get; private set; }
     public CollectiblesInventoryController collectiblesInventory { get; private set; }
     public ParticleEffectController particleEffect { get; private set; }
+    public SoundController soundController { get; private set; }
 
     public static GameManager instance => m_instance;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         gameEnded = GetComponentInChildren<GameEndedController>();
         collectiblesInventory = GetComponentInChildren<CollectiblesInventoryController>();
         particleEffect = GetComponentInChildren<ParticleEffectController>();
+        soundController = GetComponentInChildren<SoundController>();
     }
 
     public void Restart()
@@ -40,8 +42,10 @@ public class GameManager : MonoBehaviour
 
     public void SaveData()
     {
-        PlayerPrefs.SetInt("car.val", collectiblesInventory.carrots);
-        PlayerPrefs.SetInt("coi.val", collectiblesInventory.coins);
+        int savedCarrots = PlayerPrefs.GetInt("car.val", 0);
+        int savedCoins = PlayerPrefs.GetInt("coi.val", 0);
+        PlayerPrefs.SetInt("car.val", collectiblesInventory.carrots + savedCarrots);
+        PlayerPrefs.SetInt("coi.val", collectiblesInventory.coins + savedCoins);
         PlayerPrefs.Save();
     }
 }

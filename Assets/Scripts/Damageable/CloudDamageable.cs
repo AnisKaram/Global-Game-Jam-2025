@@ -18,5 +18,6 @@ public class CloudDamageable : MonoBehaviour, IDamageable
 
     public void PlaySoundEffect()
     {
+        GameManager.instance.soundController.PlaySoundEffect(0);
     }
 }

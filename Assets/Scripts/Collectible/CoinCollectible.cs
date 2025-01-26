@@ -10,7 +10,7 @@ public class CoinCollectible : MonoBehaviour, ICollectible
         CoinCollected?.Invoke();
         Destroy();
         PlaySoundEffect();
-        PlayerParticleEffect();
+        PlayParticleEffect();
         Debug.Log("Coin Collected");
     }
 
@@ -19,8 +19,9 @@ public class CoinCollectible : MonoBehaviour, ICollectible
         Destroy(gameObject);
     }
 
-    public void PlayerParticleEffect()
+    public void PlayParticleEffect()
     {
+        GameManager.instance.particleEffect.PlayCarrotEffect(transform.position);
     }
 
     public void PlaySoundEffect()

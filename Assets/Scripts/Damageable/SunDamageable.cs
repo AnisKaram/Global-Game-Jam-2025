@@ -19,5 +19,6 @@ public class SunDamageable : MonoBehaviour, IDamageable
 
     public void PlaySoundEffect()
     {
+        GameManager.instance.soundController.PlaySoundEffect(0);
     }
 }
