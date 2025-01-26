@@ -3,16 +3,17 @@ using UnityEngine;
 public class CloudDamageable : MonoBehaviour, IDamageable
 {
     private float damage = 10f;
-    public void Damage()
+    public void Damage(Vector3 hitPosition)
     {
         Debug.Log($"Cloud Damage, {damage}");
         GameManager.instance.playerHealth.ReduceHealth(damage);
-        PlayParticleEffect();
+        PlayParticleEffect(hitPosition);
         PlaySoundEffect();
     }
 
-    public void PlayParticleEffect()
+    public void PlayParticleEffect(Vector3 effectPosition)
     {
+        GameManager.instance.particleEffect.PlayObstacleImpactEffect(effectPosition);
     }
 
     public void PlaySoundEffect()

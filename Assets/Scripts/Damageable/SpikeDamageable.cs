@@ -4,16 +4,16 @@ public class SpikeDamageable : MonoBehaviour, IDamageable
 {
     private float damage = 25f;
 
-    public void Damage()
+    public void Damage(Vector3 hitPosition)
     {
         GameManager.instance.playerHealth.ReduceHealth(damage);
-        PlayParticleEffect();
+        PlayParticleEffect(hitPosition);
         PlaySoundEffect();
     }
 
-    public void PlayParticleEffect()
+    public void PlayParticleEffect(Vector3 effectPosition)
     {
-        
+        GameManager.instance.particleEffect.PlayObstacleImpactEffect(effectPosition);
     }
 
     public void PlaySoundEffect()

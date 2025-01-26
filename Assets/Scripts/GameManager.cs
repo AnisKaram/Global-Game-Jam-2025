@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public PlayerHealthController playerHealth { get; private set; }
     public GameEndedController gameEnded { get; private set; }
     public CollectiblesInventoryController collectiblesInventory { get; private set; }
+    public ParticleEffectController particleEffect { get; private set; }
 
     public static GameManager instance => m_instance;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealthController>();
         gameEnded = GetComponentInChildren<GameEndedController>();
         collectiblesInventory = GetComponentInChildren<CollectiblesInventoryController>();
+        particleEffect = GetComponentInChildren<ParticleEffectController>();
     }
 
     public void Restart()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageableCollisionDetector : MonoBehaviour
@@ -8,7 +6,12 @@ public class DamageableCollisionDetector : MonoBehaviour
     {
         if (collision.transform.TryGetComponent(out IDamageable damageable))
         {
-            damageable.Damage();
+            Vector3 hitPosition = collision.transform.position;
+            if (collision.contactCount > 0)
+            {
+                hitPosition = collision.GetContact(0).point;
+            }
+            damageable.Damage(hitPosition);
         }
     }
 }
