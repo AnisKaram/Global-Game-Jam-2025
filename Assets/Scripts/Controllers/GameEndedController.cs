@@ -16,6 +16,7 @@ public class GameEndedController : MonoBehaviour
 
     public void TriggerGameWon()
     {
+        GameManager.instance.SaveData();
         gameWonPanel.SetActive(true);
         UpdateGameWonUI();
         PauseTimeScale();

@@ -35,4 +35,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("car.val", collectiblesInventory.carrots);
+        PlayerPrefs.SetInt("coi.val", collectiblesInventory.coins);
+        PlayerPrefs.Save();
+    }
 }
