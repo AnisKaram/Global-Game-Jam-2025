@@ -1,21 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
+    #region Fields
+
+    [Header("Audio Clips")]
     public AudioClip[] sfxClips;
     public AudioClip[] gameEndedClips;
     public AudioClip soundtrackClip;
 
+    [Header("Audio Sources")]
     public AudioSource sfxAudioSource;
     public AudioSource gameEndedSource;
     public AudioSource soundtrackSource;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void Start()
     {
         PlaySoundTrack();
     }
+
+    #endregion
+
+
+    #region Public Methods
 
     public void PlaySoundEffect(int index)
     {
@@ -44,4 +56,6 @@ public class SoundController : MonoBehaviour
     {
         soundtrackSource.Stop();
     }
+
+    #endregion
 }
