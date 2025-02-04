@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Fields
+
     private static GameManager m_instance;
 
     public PlayerHealthController playerHealth { get; private set; }
@@ -15,7 +15,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] levels;
 
+    #endregion
+
+
+    #region Properties
+
     public static GameManager instance => m_instance;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void Awake()
     {
@@ -36,6 +46,11 @@ public class GameManager : MonoBehaviour
         levels[levelIndex - 1].SetActive(true);
     }
 
+    #endregion
+
+
+    #region Public Methods
+
     public void Restart()
     {
         SceneManager.LoadScene("Game");
@@ -53,4 +68,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("coi.val", collectiblesInventory.coins + savedCoins);
         PlayerPrefs.Save();
     }
+
+    #endregion
 }

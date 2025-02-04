@@ -3,11 +3,18 @@ using UnityEngine.UI;
 
 public class CollectiblesInventoryController : MonoBehaviour
 {
-    public int coins;
-    public int carrots;
+    #region Fields
+
+    public int coins { get; private set; }
+    public int carrots { get; private set; }
 
     public Text coinsText;
     public Text carrotText;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void OnEnable()
     {
@@ -24,6 +31,10 @@ public class CollectiblesInventoryController : MonoBehaviour
         CoinCollectible.CoinCollected -= OnCoinCollected;
     }
 
+    #endregion
+
+
+    #region Private Methods
 
     private void OnCoinCollected()
     {
@@ -37,9 +48,16 @@ public class CollectiblesInventoryController : MonoBehaviour
         UpdateUI();
     }
 
+    #endregion
+
+
+    #region Public Methods
+
     public void UpdateUI()
     {
         coinsText.text = $"{coins}";
         carrotText.text = $"{carrots}";
     }
+
+    #endregion
 }

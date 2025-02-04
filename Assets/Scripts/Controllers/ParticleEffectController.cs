@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleEffectController : MonoBehaviour
 {
+    #region Fields
+
     public ParticleSystem obstacleEffect;
     public ParticleSystem coinEffect;
     public ParticleSystem carrotEffect;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            PlayObstacleImpactEffect(new Vector2(0, 0));
-        }
-    }
+    #endregion
+
+
+    #region Public Methods
+
     public void PlayObstacleImpactEffect(Vector2 postion)
     {
         ParticleSystem effectInstance = Instantiate(obstacleEffect, postion, Quaternion.identity);
@@ -32,4 +30,6 @@ public class ParticleEffectController : MonoBehaviour
         ParticleSystem effectInstance = Instantiate(carrotEffect, position, Quaternion.identity);
         effectInstance.Play();
     }
+
+    #endregion
 }

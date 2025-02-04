@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
+    #region Fields
+
     public float health = 100f;
     public Text healthText;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void Awake()
     {
@@ -16,6 +21,11 @@ public class PlayerHealthController : MonoBehaviour
     {
         UpdateUI();
     }
+
+    #endregion
+
+
+    #region Public Methods
 
     public void ReduceHealth(float damage)
     {
@@ -30,8 +40,15 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
+    #endregion
+
+
+    #region Private Methods
+
     private void UpdateUI()
     {
         healthText.text = $"{health}";
     }
+
+    #endregion
 }

@@ -1,13 +1,20 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Fields
+
     public float forceAmount = 4f;
     public float rotationSpeed = 80f;
+
     private Rigidbody2D rb;
 
     private float maxHeightBoundary;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void Start()
     {
@@ -15,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
         CalculateMaxHeightBoundary();
     }
-
     private void Update()
     {
         float vertical = Input.GetAxis("Vertical");
@@ -40,6 +46,11 @@ public class PlayerController : MonoBehaviour
         // Limit the angular velocity
         rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -100f, 100f);
     }
+
+    #endregion
+
+
+    #region Private Methods
 
     private void ChangeGravityScale(float gravity)
     {
@@ -70,4 +81,6 @@ public class PlayerController : MonoBehaviour
     {
         return Mathf.Abs(transform.position.y) > maxHeightBoundary;
     }
+
+    #endregion
 }

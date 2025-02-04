@@ -3,14 +3,24 @@ using UnityEngine.UI;
 
 public class GameEndedController : MonoBehaviour
 {
+    #region Fields
+
+    [Header("Game over/won GameObjects")]
     public GameObject gameWonPanel;
     public GameObject gameOverPanel;
 
+    [Header("Game Won Texts")]
     public Text gameWonCarrotsText;
     public Text gameWonCoinsText;
 
+    [Header("Game Over Texts")]
     public Text gameOverCarrotsText;
     public Text gameOverCoinsText;
+
+    #endregion
+
+
+    #region Public Methods
 
     public void TriggerGameWon()
     {
@@ -44,6 +54,11 @@ public class GameEndedController : MonoBehaviour
         }
     }
 
+    #endregion
+
+
+    #region Private Methods
+
     private void UpdateGameWonUI()
     {
         GameManager gameManager = GameManager.instance;
@@ -61,4 +76,6 @@ public class GameEndedController : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+
+    #endregion
 }
